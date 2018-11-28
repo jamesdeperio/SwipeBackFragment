@@ -1,9 +1,9 @@
 package me.yokeyword.swipebackfragment.sample;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
 import me.yokeyword.swipebackfragment.SwipeBackActivity;
 import me.yokeyword.swipebackfragment.sample.fragment.FirstSwipeBackFragment;
 

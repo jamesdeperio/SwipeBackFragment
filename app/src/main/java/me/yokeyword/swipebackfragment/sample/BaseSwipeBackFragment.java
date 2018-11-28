@@ -1,10 +1,10 @@
 package me.yokeyword.swipebackfragment.sample;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
 import me.yokeyword.swipebackfragment.SwipeBackFragment;
 
 

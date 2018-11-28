@@ -1,9 +1,8 @@
 package me.yokeyword.swipebackfragment.sample.fragment;
 
+import androidx.appcompat.widget.Toolbar;
+
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import me.yokeyword.swipebackfragment.sample.BaseSwipeBackFragment;
 import me.yokeyword.swipebackfragment.sample.PagerAdapter;
 import me.yokeyword.swipebackfragment.sample.R;
