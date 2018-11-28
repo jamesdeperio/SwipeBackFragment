@@ -68,10 +68,6 @@ open class SwipeBackLayout : FrameLayout {
     }
 
     init {
-        init()
-    }
-
-    private fun init() {
         mHelper = ViewDragHelper.create(this, ViewDragCallback())
         setShadow(R.drawable.shadow_left, EDGE_LEFT)
         setEdgeOrientation(EDGE_LEFT)
@@ -84,9 +80,8 @@ open class SwipeBackLayout : FrameLayout {
      * @param threshold
      */
     fun setScrollThresHold(threshold: Float) {
-        if (threshold >= 1.0f || threshold <= 0) {
+        if (threshold >= 1.0f || threshold <= 0)
             throw IllegalArgumentException("Threshold value should be between 0 and 1.0")
-        }
         mScrollFinishThreshold = threshold
     }
 
@@ -104,10 +99,8 @@ open class SwipeBackLayout : FrameLayout {
     fun setEdgeOrientation(orientation: Int) {
         mEdgeFlag = orientation
         mHelper!!.setEdgeTrackingEnabled(orientation)
-
-        if (orientation == EDGE_RIGHT || orientation == EDGE_ALL) {
+        if (orientation == EDGE_RIGHT || orientation == EDGE_ALL)
             setShadow(R.drawable.shadow_right, EDGE_RIGHT)
-        }
     }
 
     fun setEdgeLevel(widthPixel: Int) {
@@ -144,10 +137,9 @@ open class SwipeBackLayout : FrameLayout {
      * Set a drawable used for edge shadow.
      */
     fun setShadow(shadow: Drawable, edgeFlag: Int) {
-        if (edgeFlag and EDGE_LEFT != 0) {
-            mShadowLeft = shadow
-        } else if (edgeFlag and EDGE_RIGHT != 0) {
-            mShadowRight = shadow
+        when {
+            edgeFlag and EDGE_LEFT != 0 -> mShadowLeft = shadow
+            edgeFlag and EDGE_RIGHT != 0 -> mShadowRight = shadow
         }
         invalidate()
     }
@@ -155,7 +147,7 @@ open class SwipeBackLayout : FrameLayout {
     /**
      * Set a drawable used for edge shadow.
      */
-    open fun setShadow(resId: Int, edgeFlag: Int) {
+     fun setShadow(resId: Int, edgeFlag: Int) {
         setShadow(resources.getDrawable(resId), edgeFlag)
     }
 
@@ -250,10 +242,8 @@ open class SwipeBackLayout : FrameLayout {
 
     override fun computeScroll() {
         mScrimOpacity = 1 - mScrollPercent
-        if (mScrimOpacity >= 0) {
-            if (mHelper!!.continueSettling(true)) {
-                ViewCompat.postInvalidateOnAnimation(this)
-            }
+        if (mScrimOpacity >= 0 && mHelper!!.continueSettling(true)) {
+            ViewCompat.postInvalidateOnAnimation(this)
         }
     }
 
